@@ -7,7 +7,10 @@ Bootstrap(app)
 
 @app.route('/')
 def home():
-    return render_template("index.html")
+    cards = [0, 1, 3]
+    return render_template("index.html", c=cards)
+
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=8000)
