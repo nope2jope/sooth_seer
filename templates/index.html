@@ -20,7 +20,7 @@
 <!-- Reading Buttons -->
             <div class="page-section-custom container text-center">
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Choose Your Spread</h2>
-            <button type="button" class="btn btn-primary btn-xl reading-button">One-Card</button>
+            <a href=" {{url_for('one_card')}} " class="btn btn-primary btn-xl reading-button">One-Card</a>
             <button type="button" class="btn btn-primary btn-xl reading-button ">Three-Card</button>
             <button type="button" class="btn btn-primary btn-xl reading-button">Four-Card</button>
 
@@ -31,12 +31,16 @@
                     <div class="divider-custom-line"></div>
                 </div>
             </div>
+
+{% if bool == True %}
+{% if c==1 %}
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="portfolio">
             <div class="container">
 
+
                 <!-- Portfolio Section Heading-->
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">The Stars Speak</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">The Stars Have Spoken</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
@@ -45,7 +49,7 @@
                 </div>
                 <!-- Portfolio Grid Items-->
                 <div class="row justify-content-center">
-{% for _ in c%}
+
                     <!-- Portfolio Item 1-->
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
@@ -55,7 +59,15 @@
                             <img class="img-fluid" src="{{ url_for('static', filename='assets/img/portfolio/cabin.png')}}" alt="..." />
                         </div>
                     </div>
-{% endfor %}
+
+{% elif c==3 %}
+
+
+{% else %}
+
+                    <h1>waiting!</h1>
+{% endif %}
+{% endif %}
                 </div>
             </div>
         </section>
