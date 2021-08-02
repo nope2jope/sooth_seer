@@ -2971,13 +2971,13 @@ textarea.form-control-lg {
 
 .btn-primary {
   color: #fff;
-  background-color: #1abc9c;
-  border-color: #1abc9c;
+  background-color: #976577;
+  border-color: #976577;
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #16a085;
-  border-color: #15967d;
+  background-color: #C896A7;
+  border-color: #C896A7;
 }
 .btn-check:focus + .btn-primary, .btn-primary:focus {
   color: #fff;
@@ -7414,15 +7414,15 @@ textarea.form-control-lg {
 }
 
 .bg-primary {
-  background-color: #1abc9c !important;
+  background-color: #322435 !important;
 }
 
 .bg-secondary {
-  background-color: #2c3e50 !important;
+  background-color: #976577 !important;
 }
 
 .bg-success {
-  background-color: #198754 !important;
+  background-color: #cdb4db !important;
 }
 
 .bg-info {
@@ -10872,6 +10872,11 @@ html {
   padding-bottom: 0;
 }
 
+.page-section-custom-a {
+  padding-top: 4rem;
+  padding-bottom: 8rem;
+}
+
 .page-section .page-section-heading {
   font-size: 2.25rem;
   line-height: 2rem;
@@ -11092,4 +11097,9 @@ position: relative;
   margin-bottom: 2rem;
   margin-left: 1rem;
   margin-right: 1rem;
+}
+
+.reversed {
+  transform: rotate(180deg);
+}
 }

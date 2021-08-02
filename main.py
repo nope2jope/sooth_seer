@@ -26,23 +26,25 @@ def home():
 def one_card():
     fortune = croupier.fortune_teller(deck=tarot_deck, spread=1)
     cards = 1
+    portents = ['Fortune']
     clicked = True
-    return render_template("index.html", c=cards, f=fortune, bool=clicked)
+    return render_template("index.html", c=cards, f=fortune, bool=clicked, p=portents)
 
 @app.route('/three-card')
 def three_card():
     fortune = croupier.fortune_teller(deck=tarot_deck, spread=3)
     cards = 3
+    portents = ['Past', 'Present', 'Future']
     clicked = True
-    pprint(fortune[0])
-    return render_template("index.html", c=cards, f=fortune, bool=clicked)
+    return render_template("index.html", c=cards, f=fortune, bool=clicked, p=portents)
 
 @app.route('/four-card')
 def four_card():
     fortune = croupier.fortune_teller(deck=tarot_deck, spread=4)
     cards = 4
+    portents = ['Querent', 'Past', 'Present', 'Future']
     clicked = True
-    return render_template("index.html", c=cards, f=fortune, bool=clicked)
+    return render_template("index.html", c=cards, f=fortune, bool=clicked, p=portents)
 
 if __name__ == "__main__":
     app.run(debug=True, port=8000)

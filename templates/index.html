@@ -5,7 +5,7 @@
                 <!-- Masthead Avatar Image-->
                 <img class="masthead-avatar mb-5" src="{{ url_for('static', filename='assets/img/palm_read.png')}}" alt="..." />
                 <!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Start Bootstrap</h1>
+                <h1 class="masthead-heading text-uppercase mb-0">Greetings, Traveler</h1>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -17,12 +17,26 @@
             </div>
         </header>
 
+{% if bool == False %}
+
+<!-- Reading Buttons -->
+            <div class="page-section-custom-a container text-center">
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Choose Your Spread</h2>
+            <a href=" {{url_for('one_card')}} " class="btn btn-primary btn-xl reading-button">One-Card</a>
+            <a href=" {{url_for('three_card')}} " class="btn btn-primary btn-xl reading-button">Three-Card</a>
+            <a href=" {{url_for('four_card')}} " class="btn btn-primary btn-xl reading-button">Four-Card</a>
+            </div>
+{% endif %}
+
+{% if bool == True %}
+
 <!-- Reading Buttons -->
             <div class="page-section-custom container text-center">
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Choose Your Spread</h2>
             <a href=" {{url_for('one_card')}} " class="btn btn-primary btn-xl reading-button">One-Card</a>
             <a href=" {{url_for('three_card')}} " class="btn btn-primary btn-xl reading-button">Three-Card</a>
             <a href=" {{url_for('four_card')}} " class="btn btn-primary btn-xl reading-button">Four-Card</a>
+
 
                 <!-- Icon Divider-->
                 <div class="divider-custom">
@@ -33,10 +47,8 @@
             </div>
 
         <!-- Portfolio Section-->
-        <section class="page-section portfolio" id="portfolio">
+        <section class="portfolio" id="portfolio">
             <div class="container">
-
-{% if bool == True %}
 
                 <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">The Stars Have Spoken</h2>
@@ -54,6 +66,7 @@
 {% for card in range(c) %}
                     <!-- Result Item -->
                     <div class="col-md-3 col-lg-2 mb-5">
+                        <p class="portfolio-item-caption-content text-center"><b>{{p[card]}}</b></p>
                         <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal{{card}}">
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
@@ -92,7 +105,11 @@
                                         <div class="divider-custom-line"></div>
                                     </div>
                                     <!-- Portfolio Modal - Image-->
+                                    {% if "Reversed" in f[card]['meaning'] %}
+                                    <img class="img-fluid rounded center mb-5 reversed" src= "{{ 'https://' + f[card]['img_url'] }}" alt="{{ f[card]['name']}}" />
+                                    {% else %}
                                     <img class="img-fluid rounded center mb-5" src= "{{ 'https://' + f[card]['img_url'] }}" alt="{{ f[card]['name']}}" />
+                                    {% endif %}
                                     <!-- Portfolio Modal - Text-->
                                     <p class="mb-4">{{ f[card]['meaning'] }}</p>
                                     <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
