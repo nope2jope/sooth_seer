@@ -26,6 +26,30 @@ class MirrorMirror:
 
             return raw_images_list
 
+        # resizes images from original >71px to 200px
+        def resize_images(raw_list):
+            resized_list = []
+
+            for i in raw_list:
+                if "66px" in i:
+                    b = i.replace("66px", "200px")
+                    resized_list.append(b)
+                elif "67px" in i:
+                    b = i.replace("67px", "200px")
+                    resized_list.append(b)
+                elif "68px" in i:
+                    b = i.replace("68px", "200px")
+                    resized_list.append(b)
+                if "69px" in i:
+                    b = i.replace("69px", "200px")
+                    resized_list.append(b)
+                elif "70px" in i:
+                    b = i.replace("70px", "200px")
+                    resized_list.append(b)
+
+            return resized_list
+
+
         # reformats card face images by house
         def arrange_images(sources):
 
@@ -60,4 +84,5 @@ class MirrorMirror:
             return sorted_imgs
 
         imgs = fetch_images(doc=self.document)
-        self.formatted_images = arrange_images(sources=imgs)
+        r_imgs = resize_images(imgs)
+        self.formatted_images = arrange_images(sources=r_imgs)
