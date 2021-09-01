@@ -48,4 +48,4 @@ def four_card():
     return render_template("index.html", c=cards, f=fortune, bool=clicked, p=portents)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
